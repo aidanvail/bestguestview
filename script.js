@@ -17,3 +17,32 @@ function showSlides(n) {
 }
 
 // Remove the automatic slideshow function
+
+function showPolicy(type) {
+    const modal = document.getElementById('policyModal');
+    const bookingPolicy = document.getElementById('bookingPolicy');
+    const termsConditions = document.getElementById('termsConditions');
+    
+    modal.style.display = 'block';
+    
+    if (type === 'booking') {
+        bookingPolicy.style.display = 'block';
+        termsConditions.style.display = 'none';
+    } else {
+        bookingPolicy.style.display = 'none';
+        termsConditions.style.display = 'block';
+    }
+}
+
+// Close modal when clicking the X
+document.querySelector('.close-modal').onclick = function() {
+    document.getElementById('policyModal').style.display = 'none';
+}
+
+// Close modal when clicking outside
+window.onclick = function(event) {
+    const modal = document.getElementById('policyModal');
+    if (event.target == modal) {
+        modal.style.display = 'none';
+    }
+}
